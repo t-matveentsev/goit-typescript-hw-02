@@ -1,0 +1,32 @@
+.wrapper {
+  display: flex;
+  background-color: inherit;
+  height: 80px;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  height: 35px;
+  width: 300px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid #34495e;
+  font-size: 18px;
+  font-family: inherit;
+  padding-left: 15px;
+}
+
+input::placeholder {
+  opacity: 0.7;
+}
+.formBtn {
+  font-family: inherit;
+  color: white;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid black;
+  margin-left: 10px;
+  background-color: #000000;
+}

@@ -1,0 +1,14 @@
+.moreBtn {
+  font-family: inherit;
+  color: black;
+  font-size: 16px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  border: none;
+  margin-left: 10px;
+  background-color: #aeb6bf;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
