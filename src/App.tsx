@@ -7,14 +7,20 @@ import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "./components/ImageModal/ImageModal";
 
+type Article = {
+  id: string;
+  urls: { small: string; regular: string };
+  alt_description: string;
+};
+
 export default function App() {
-  const [articles, setArticles] = useState([]);
-  const [query, setQuery] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const [page, setPage] = useState(1);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [targetImage, setTargetImage] = useState(null);
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [query, setQuery] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(1);
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  const [targetImage, setTargetImage] = useState<string | null>(null);
 
   useEffect(() => {
     if (!query) return;
@@ -32,13 +38,13 @@ export default function App() {
     fetchArticles();
   }, [query, page]);
 
-  const handleSetQuery = (newQuery) => {
+  const handleSetQuery = (newQuery: string) => {
     setQuery(newQuery);
     setArticles([]);
     setPage(1);
   };
 
-  const openModal = (imageUrl) => {
+  const openModal = (imageUrl: string) => {
     setTargetImage(imageUrl);
     setModalIsOpen(true);
   };
