@@ -2,7 +2,13 @@ import Modal from "react-modal";
 
 Modal.setAppElement("#root");
 
-const ImageModal = ({ isOpen, onClose, image }) => {
+type ImageModalProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  image: string | null;
+};
+
+const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onClose, image }) => {
   return (
     <Modal
       isOpen={isOpen}
@@ -24,11 +30,13 @@ const ImageModal = ({ isOpen, onClose, image }) => {
       }}
     >
       <div>
-        <img
-          onClick={onClose}
-          src={image}
-          style={{ maxWidth: "90vw", maxHeight: "90vh" }}
-        />
+        {image && (
+          <img
+            onClick={onClose}
+            src={image}
+            style={{ maxWidth: "90vw", maxHeight: "90vh" }}
+          />
+        )}
       </div>
     </Modal>
   );

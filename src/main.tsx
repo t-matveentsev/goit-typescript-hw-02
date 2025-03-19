@@ -7,6 +7,7 @@ import App from "./App";
 createRoot(document.getElementById("root") as HTMLElement).render(
   <StrictMode>
     <>
+      <Toaster position="top-right" reverseOrder={false} />
       <App />
     </>
   </StrictMode>

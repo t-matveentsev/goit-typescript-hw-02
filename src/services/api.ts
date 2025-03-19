@@ -6,8 +6,19 @@ axios.defaults.headers.common = {
   Authorization: `Client-ID ${ACCESS_KEY}`,
 };
 
-export const fetchRequest = async (query, page) => {
-  const response = await axios.get(
+type ApiResponse = {
+  results: Array<{
+    id: string;
+    urls: { small: string; regular: string };
+    alt_description: string;
+  }>;
+};
+
+export const fetchRequest = async (
+  query: string,
+  page: number
+): Promise<ApiResponse> => {
+  const response = await axios.get<ApiResponse>(
     `https://api.unsplash.com/search/photos?query=${query}&page=${page}`
   );
   return response.data;
